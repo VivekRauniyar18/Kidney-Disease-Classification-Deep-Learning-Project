@@ -160,3 +160,34 @@ cython_debug/
 #.idea/
 
 artifacts/*
+
+
+
+
+# OS / IDE
+.DS_Store
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Logs / temp
+logs/
+*.log
+scores.json
+
+# Artifacts & models (usually don’t version)
+artifacts/
+*.h5
+*.hdf5
+*.keras
+
+# Datasets / zips
+*.zip
+data/
+dataset/

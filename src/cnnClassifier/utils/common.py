@@ -54,20 +54,34 @@ def create_directories(path_to_directories: list, verbose=True):
             logger.info(f"created directory at: {path}")
 
 
+# @ensure_annotations
+# def save_json(path: Path, data: dict):
+#     path.parent.mkdir(parents=True, exist_ok=True)
+#     """save json data
+#     Args:
+#         path(path): poath to json file
+    
+#     Returns:
+#         ConfigBox: data as class attributes instead of dict
+#     """
+#     with open(path, "w") as f:
+#         json.dump(data, f, indent=4)
+
+#     logger.info(f"JSON file saved successfully at: {path}")
+#     return ConfigBox(data)
+
 @ensure_annotations
 def save_json(path: Path, data: dict):
-    """save json data
-    Args:
-        path(path): poath to json file
-    
-    Returns:
-        ConfigBox: data as class attributes instead of dict
-    """
-    with open(path) as f:
-        content= json.load(f)
+    path.parent.mkdir(parents=True, exist_ok=True)  # Ensure directory exists
 
-    logger.info(f"json file loaded successfully from: {path}")
-    return ConfigBox(content)
+    with open(path, "w") as f:
+        json.dump(data, f, indent=4)
+
+    logger.info(f"JSON file saved successfully at: {path}")
+
+
+
+
 
 @ensure_annotations
 def save_bin(data: Any, path: Path):
