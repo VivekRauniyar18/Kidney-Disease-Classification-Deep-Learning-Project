@@ -191,3 +191,29 @@ artifacts/
 *.zip
 data/
 dataset/
+
+
+
+# macOS junk
+.DS_Store
+__MACOSX/
+*/._*
+
+# Python / build
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Logs / temps
+logs/
+*.log
+scores.json
+
+# Artifacts, models, datasets
+artifacts/
+*.h5
+*.hdf5
+*.keras
+*.zip
+data/
+dataset/
