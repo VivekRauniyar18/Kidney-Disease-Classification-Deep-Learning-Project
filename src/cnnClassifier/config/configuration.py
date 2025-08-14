@@ -1,9 +1,10 @@
 from cnnClassifier.constants import *
 import os 
-from cnnClassifier.utils.common import read_yaml, create_directories 
+from cnnClassifier.utils.common import read_yaml, create_directories, save_json
 from cnnClassifier.entity.config_entity import (DataIngestionConfig,
                                                 PrepareBaseModelConfig,
-                                                TrainingConfig )
+                                                TrainingConfig,
+                                                EvaluationConfig )
 
 class ConfigurationManager:
     def __init__(
@@ -14,8 +15,9 @@ class ConfigurationManager:
             self.config = read_yaml(config_filepath)
             self.params = read_yaml(params_filepath)
 
-            create_directories([self.config.artifacts_root]
-    )
+            create_directories([self.config.artifacts_root])
+      
+    
             
     def get_data_ingestion_config(self) -> DataIngestionConfig:
           config = self.config.data_ingestion
@@ -73,3 +75,16 @@ class ConfigurationManager:
             params_image_size= params.IMAGE_SIZE
         )
         return training_config
+    
+    def get_evaluation_config(self) -> EvaluationConfig:
+        eval_config = EvaluationConfig(
+            path_of_model=Path(self.config.training.trained_model_path),
+            training_data=Path(self.config.data_ingestion.unzip_dir),
+            mlflow_uri=self.config.mlflow_uri,
+            all_params=self.params,
+            params_image_size=self.params.IMAGE_SIZE,
+            params_batch_size=self.params.BATCH_SIZE,
+            experiment_name="kidney-disease-experiment",
+            run_name="run-1"
+        )
+        return eval_config

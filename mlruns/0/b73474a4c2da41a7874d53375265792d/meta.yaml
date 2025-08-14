@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/vivekrauniyar/Documents/DS Stuffs/Python_DS/Projects/Kidney-Disease-Classification-project/mlruns/0/b73474a4c2da41a7874d53375265792d/artifacts
+end_time: 1755052206336
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: b73474a4c2da41a7874d53375265792d
+run_name: run-1
+run_uuid: b73474a4c2da41a7874d53375265792d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1755052205210
+status: 4
+tags: []
+user_id: vivekrauniyar
